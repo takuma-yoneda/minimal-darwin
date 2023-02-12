@@ -5,18 +5,26 @@
   imports = [
     ./configs/zsh.nix
     ./configs/git.nix
+    ./configs/yabai.nix
   ];
 
   # nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "22.05";
   home.packages = with pkgs; [
+    nix
+    nixfmt
     cowsay
+    docker
+    fd
+    ffmpeg
     htop
     exa
+    pdftk
+    rsync
+    ripgrep
     tree
     wget
-    rsync
 
     # Fonts
     nerdfonts

@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+
+  imports = [
+    ./darwin/homebrew.nix
+  ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [
@@ -17,7 +22,28 @@
   # Therefore it is recommended to add the user shells to this list.
   environment.shells = with pkgs; [ bash zsh ];
 
+  # Not sure if this is necessary...
+  fonts.fontDir.enable = true;
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
+
+  # services.yabai = {
+  #   enable = true;
+  #   enableScriptingAddition = true;
+  #   package = pkgs.yabai;
+  #   # NOTE: There's a config keyword, but better to use a sepearate file.
+  #   extraConfig = (builtins.readFile ./yabairc);
+  # };
+
+  # services.skhd = {
+  #   # NOTE: Configuration is not being reflected?
+  #   # You can set enable = false and then darwin-rebuild switch, and then reenable it.
+  #   # For whatever mysterious reasons, that reflects the configuration.
+  #   enable = true;
+  #   package = pkgs.skhd;
+  #   skhdConfig = (builtins.readFile ./skhdrc);
+  # };
+
 }

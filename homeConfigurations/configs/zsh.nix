@@ -6,7 +6,9 @@
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
     shellAliases = {
-      hoge = "ls -l";
+      ls = "exa";
+      ll = "exa -l";
+      p = "python3";
     };
 
     # NOTE: I guess all I need is a reasonable theme?
