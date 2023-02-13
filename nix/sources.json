@@ -1,0 +1,27 @@
+{
+    "doomemacs": {
+        "branch": "master",
+        "description": "An Emacs framework for the stubborn martian hacker",
+        "homepage": "",
+        "owner": "doomemacs",
+        "repo": "doomemacs",
+        "rev": "e96624926d724aff98e862221422cd7124a99c19",
+        "sha256": "1rami8cvlvaprqgk8v88g9vi0z07rd7n0w57j88kh167mwd91s8b",
+        "type": "tarball",
+        "url": "https://github.com/doomemacs/doomemacs/archive/e96624926d724aff98e862221422cd7124a99c19.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "release-21.05",
+        "description": "Nix Packages collection",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "022caabb5f2265ad4006c1fa5b1ebe69fb0c3faf",
+        "sha256": "12q00nbd7fb812zchbcnmdg3pw45qhxm74hgpjmshc2dfmgkjh4n",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/022caabb5f2265ad4006c1fa5b1ebe69fb0c3faf.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "version": "release-22.11"
+    }
+}
