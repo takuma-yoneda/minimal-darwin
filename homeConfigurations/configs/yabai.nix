@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  # NOTE: This assumes that yabai is installed via Homebrew!!
   home.file.yabai = {
     executable = true;
     target = ".config/yabai/yabairc";
@@ -8,7 +9,7 @@
       yabai = "/opt/homebrew/bin/yabai";
     in
       ''
-      #!/usr/bin/env bash
+      #!${pkgs.bash}/bin/bash
 
       # Forked from https://github.com/julian-heng/yabai-config
 
@@ -51,7 +52,7 @@
       ${yabai} -m config window_gap                  "''${gaps["inner"]}"
 
       ${yabai} -m config mouse_follows_focus         off
-      ${yabai} -m config focus_follows_mouse         on
+      ${yabai} -m config focus_follows_mouse         autofocus
 
       ${yabai} -m config window_topmost              off
       ${yabai} -m config window_opacity              off

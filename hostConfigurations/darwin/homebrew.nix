@@ -26,13 +26,13 @@
       # Yabai family
       {
         name = "skhd";
-        start_service = true;  # This will register it to launch at boot
-        restart_service = "changed";
+        # start_service = true;
+        restart_service = true;  # This will register it to launch at boot
       }
       {
         name = "yabai";
-        start_service = true;  # This will register it to launch at boot
-        restart_service = "changed";
+        # start_service = true;
+        restart_service = true;  # This will register it to launch at boot
       }
       "yabai"
     ];
