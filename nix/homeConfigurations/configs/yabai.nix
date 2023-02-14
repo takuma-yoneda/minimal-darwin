@@ -38,8 +38,8 @@
       # ===== Loading Scripting Additions ============
 
       # See: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#macos-big-sur---automatically-load-scripting-addition-on-startup
-      sudo ${yabai} --load-sa
-      ${yabai} -m signal --add event=dock_did_restart action="sudo ${yabai} --load-sa"
+      sudo ${yabai}  # --load-sa
+      ${yabai} -m signal --add event=dock_did_restart action="sudo ${yabai}  # --load-sa"
 
       # ===== Tiling setting =========================
 
@@ -52,7 +52,7 @@
       ${yabai} -m config window_gap                  "''${gaps["inner"]}"
 
       ${yabai} -m config mouse_follows_focus         off
-      ${yabai} -m config focus_follows_mouse         autofocus
+      ${yabai} -m config focus_follows_mouse         off  # autofocus or raise
 
       ${yabai} -m config window_topmost              off
       ${yabai} -m config window_opacity              off
