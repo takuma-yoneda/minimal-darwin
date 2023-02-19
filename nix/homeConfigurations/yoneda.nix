@@ -34,6 +34,7 @@
     texlive.combined.scheme-full  # LaTeX
     tree
     youtube-dl
+    watch
     wget
 
     # Fonts
