@@ -31,11 +31,15 @@
     rsync
     ripgrep
     gnused
-    texlive.combined.scheme-full  # LaTeX
+    # texlive.combined.scheme-full  # LaTeX
     tree
     youtube-dl
     watch
     wget
+
+    # It's better to have project specific directories
+    # that have these inside, but it's easier to install globally honestly...
+    nodePackages.pnpm
 
     # Fonts
     nerdfonts
@@ -47,4 +51,12 @@
     enable = true;
     # tmux.enableShellIntegration = true;
   };
+
+  programs.bottom = {
+    enable = true;
+  };
+
+  programs.less.enable = true;
+  programs.vim.enable = true;
+  programs.texlive.enable = true;
 }

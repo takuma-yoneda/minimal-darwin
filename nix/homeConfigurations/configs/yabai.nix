@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  # NOTE: This assumes that yabai is installed via Homebrew!!
+  # NOTE: This assumes that
+  # - yabai is installed via Homebrew!!
+  # - scripting addition is configured manually (/private/etc/sudoers.d/yabai is added)
   home.file.yabai = {
     executable = true;
     target = ".config/yabai/yabairc";
@@ -54,9 +56,11 @@
       ${yabai} -m config mouse_follows_focus         off
       ${yabai} -m config focus_follows_mouse         off  # autofocus or raise
 
+      # modify window shadows (default: on, options: on, off, float)
+      # example: show shadows only for floating windows
       ${yabai} -m config window_topmost              off
       ${yabai} -m config window_opacity              off
-      ${yabai} -m config window_shadow               float
+      ${yabai} -m config window_shadow               off
 
       ${yabai} -m config window_border               on
       ${yabai} -m config window_border_width         2
@@ -77,6 +81,7 @@
       # ===== Rules ==================================
 
       # ${yabai} -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+      # ${yabai} -m rule --add label="DoomEmacs" app="^Emacs$" manage=on
       ${yabai} -m rule --add label="Finder" app="^Finder$" manage=off
       ${yabai} -m rule --add label="NordVPN" app="^NordVPN$" manage=off
       ${yabai} -m rule --add label="Messages" app="^Messages$" manage=off

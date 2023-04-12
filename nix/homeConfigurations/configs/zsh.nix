@@ -46,7 +46,7 @@
         typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
     # HACK: temporarily add to PATH!
-    export PATH=$PATH:$HOME/.local/bin
+    export PATH=/Library/Frameworks/Python.framework/Versions/3.8/bin:/opt/homebrew/bin:$PATH:$HOME/.local/bin:
     '';
 
     # NOTE: Look at
