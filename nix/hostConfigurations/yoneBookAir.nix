@@ -36,22 +36,21 @@
   # Issue: https://github.com/nix-community/home-manager/issues/4026
   users.users."yoneda".home = "/Users/yoneda";
 
-  # NOTE: yabai and skhd are managed via Homebrew temporarily
-  # services.yabai = {
-  #   enable = true;
-  #   enableScriptingAddition = true;
-  #   package = pkgs.yabai;
-  #   # NOTE: There's a config keyword, but better to use a sepearate file.
-  #   extraConfig = (builtins.readFile ./yabairc);
-  # };
+  services.yabai = {
+    enable = true;
+    enableScriptingAddition = true;
+    package = pkgs.yabai;
+    # NOTE: There's a config keyword, but better to use a sepearate file.
+    extraConfig = (builtins.readFile ./darwin/yabairc);
+  };
 
-  # services.skhd = {
-  #   # NOTE: Configuration is not being reflected?
-  #   # You can set enable = false and then darwin-rebuild switch, and then reenable it.
-  #   # For whatever mysterious reasons, that reflects the configuration.
-  #   enable = true;
-  #   package = pkgs.skhd;
-  #   skhdConfig = (builtins.readFile ./skhdrc);
-  # };
+  services.skhd = {
+    # NOTE: Configuration is not being reflected?
+    # You can set enable = false and then darwin-rebuild switch, and then reenable it.
+    # For whatever mysterious reasons, that reflects the configuration.
+    enable = true;
+    package = pkgs.skhd;
+    skhdConfig = (builtins.readFile ./darwin/skhdrc);
+  };
 
 }

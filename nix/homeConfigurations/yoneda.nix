@@ -8,7 +8,6 @@
   imports = [
     ./configs/zsh.nix
     ./configs/git.nix
-    ./configs/yabai.nix
     ./configs/tmux.nix
     # ./emacs
   ];
