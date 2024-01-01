@@ -15,7 +15,7 @@
     onActivation.upgrade = true;
 
     onActivation = {
-      # "zap" removes manually installed brews and casks
+      # if set to "zap", nix-darwin removes manually installed brews and casks
       cleanup = "none";
     };
 
@@ -29,12 +29,12 @@
         # start_service = true;
         restart_service = true;  # This will register it to launch at boot
       }
-      {
-        name = "yabai";
-        # start_service = true;
-        restart_service = true;  # This will register it to launch at boot
-      }
-      "yabai"
+      # {
+      #   name = "yabai";
+      #   # start_service = true;
+      #   restart_service = true;  # This will register it to launch at boot
+      # }
+      # "yabai"
       "portaudio"
     ];
     casks = [
@@ -50,7 +50,7 @@
       "homebrew/core"
       "homebrew/services"
       # custom
-      "koekeishiya/formulae" # yabai
+      # "koekeishiya/formulae" # yabai
     ];
   };
 }
