@@ -1,3 +1,6 @@
+# NOTE: This file is read by Nix-darwin
+# Remember that this file goes into `nix-darwin.lib.darwinSystem.modules`
+
 { pkgs, ... }:
 {
 
@@ -28,6 +31,10 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
+
+  # NOTE: There is a bug in Nix Darwin, where Home Manager errors when this is not explictly set
+  # Issue: https://github.com/nix-community/home-manager/issues/4026
+  users.users."yoneda".home = "/Users/yoneda";
 
   # NOTE: yabai and skhd are managed via Homebrew temporarily
   # services.yabai = {

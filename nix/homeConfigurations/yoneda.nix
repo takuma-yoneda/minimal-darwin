@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+# NOTE: This file is read by Home Manager
+# Remember that this file is set to `home-manager.users.yoneda`
+
+{ pkgs, nixpkgs, ... }:
 
 {
   # Import modular *.nix files
@@ -12,7 +15,9 @@
 
   # nixpkgs.config.allowUnfree = true;
 
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
+
+
   home.packages = with pkgs; [
     # Nix related
     nix
@@ -26,7 +31,7 @@
     fd
     ffmpeg
     htop
-    exa  # Modern ls
+    eza  # Modern ls
     pdftk
     rsync
     ripgrep
@@ -41,6 +46,9 @@
     # that have these inside, but it's easier to install globally honestly...
     nodePackages.pnpm
 
+    # A set of nice utilities to do simple manipulation of images
+    imagemagick
+
     # Fonts
     nerdfonts
   ];
@@ -52,10 +60,7 @@
     # tmux.enableShellIntegration = true;
   };
 
-  programs.bottom = {
-    enable = true;
-  };
-
+  programs.bottom.enable = true;
   programs.less.enable = true;
   programs.vim.enable = true;
   programs.texlive.enable = true;

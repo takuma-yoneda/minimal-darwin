@@ -23,7 +23,7 @@
       declare -A color
 
       gaps["top"]="4"
-      gaps["bottom"]="14"
+      gaps["bottom"]="4"
       gaps["left"]="4"
       gaps["right"]="4"
       gaps["inner"]="4"
@@ -45,7 +45,10 @@
 
       # ===== Tiling setting =========================
 
-      ${yabai} -m config layout                      bsp
+      ${yabai} -m config layout                      float
+      # Override default layout for space 1 only
+      ${yabai} -m config --space 1 layout            bsp
+      ${yabai} -m config --space 2 layout            bsp
 
       ${yabai} -m config top_padding                 "''${gaps["top"]}"
       ${yabai} -m config bottom_padding              "''${gaps["bottom"]}"
@@ -63,6 +66,7 @@
       ${yabai} -m config window_shadow               off
 
       ${yabai} -m config window_border               on
+      ${yabai} -m config window_border_blur          off
       ${yabai} -m config window_border_width         2
       ${yabai} -m config active_window_border_color  "''${color["focused"]}"
       ${yabai} -m config normal_window_border_color  "''${color["normal"]}"
@@ -81,7 +85,7 @@
       # ===== Rules ==================================
 
       # ${yabai} -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-      # ${yabai} -m rule --add label="DoomEmacs" app="^Emacs$" manage=on
+      # ${yabai} -m rule --add label="DoomEmacs" app="^emacs$" manage=on
       ${yabai} -m rule --add label="Finder" app="^Finder$" manage=off
       ${yabai} -m rule --add label="NordVPN" app="^NordVPN$" manage=off
       ${yabai} -m rule --add label="Messages" app="^Messages$" manage=off

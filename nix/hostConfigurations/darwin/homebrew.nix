@@ -35,9 +35,11 @@
         restart_service = true;  # This will register it to launch at boot
       }
       "yabai"
+      "portaudio"
     ];
     casks = [
       "macfuse"
+      "warp"
     ];
     taps = [
       # default

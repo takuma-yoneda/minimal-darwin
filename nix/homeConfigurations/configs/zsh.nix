@@ -5,7 +5,6 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
     historySubstringSearch = {
       enable = true;
       # Emacs-like keybinds
@@ -20,11 +19,13 @@
     };
 
     shellAliases = {
-      ls = "exa";
-      ll = "exa -l";
+      ls = "eza";
+      ll = "eza -l";
       p = "python3";
       grep = "rg";
     };
+
+    syntaxHighlighting.enable = true;
 
     # NOTE: I guess all I need is a reasonable theme?
     # All the plugins look less attractive now.
@@ -58,6 +59,7 @@
     # };
 
   };
+
 
   programs.starship = {
     enable = true;
