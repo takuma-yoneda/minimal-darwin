@@ -23,10 +23,14 @@
       "hunspell"
       "qt"
       "portaudio"
+      # {
+      #   name = "borders";
+      #   # start_service = true;
+      #   restart_service = true;
+      # }
     ];
     casks = [
       "macfuse"
-      "warp"
     ];
     taps = [
       # default
@@ -38,6 +42,7 @@
       "homebrew/services"
       # custom
       # "koekeishiya/formulae" # yabai
+      "FelixKratz/formulae"  # JankyBorders
     ];
   };
 }

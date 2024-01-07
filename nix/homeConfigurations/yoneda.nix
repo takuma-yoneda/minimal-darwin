@@ -1,7 +1,7 @@
 # NOTE: This file is read by Home Manager
 # Remember that this file is set to `home-manager.users.yoneda`
 
-{ pkgs, nixpkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Import modular *.nix files
@@ -9,13 +9,13 @@
     ./configs/zsh.nix
     ./configs/git.nix
     ./configs/tmux.nix
+    ./configs/borders.nix
     # ./emacs
   ];
 
   # nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "23.11";
-
 
   home.packages = with pkgs; [
     # Nix related
