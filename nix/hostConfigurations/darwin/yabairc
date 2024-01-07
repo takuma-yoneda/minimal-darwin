@@ -5,6 +5,10 @@
 
 set -x
 
+# DEBUG: debug logs will be available at `/tmp/yabai_$USER.err.log`, `/tmp/yabai_$USER.out.log`
+# https://github.com/koekeishiya/yabai/wiki/Configuration#debug-output-and-error-reporting
+# yabai -m config debug_output on
+
 # ====== Variables =============================
 
 # ===== Loading Scripting Additions ============
@@ -74,3 +78,8 @@ yabai -m rule --add label="About This Mac" app="System Information" title="About
 
 yabai -m rule --add label="Spotify" app="^Spotify$" manage=off
 yabai -m rule --add label="Slack" app="^Slack$" manage=off
+
+# HACK: to fix issues with picture-in-picture of Arc browser
+# you can try `yabai -m query --windows` to see the info of the pip window, and it seems only pip window has subrole AXSystemDialog.
+# reference: https://github.com/koekeishiya/yabai/issues/1669#issuecomment-1484419371
+yabai -m rule --add subrole="^AXSystemDialog$" manage=off

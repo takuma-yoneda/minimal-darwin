@@ -9,7 +9,7 @@ alt - l : yabai -m window --focus east
 # Navigation across spaces (workspaces)
 alt - p : yabai -m space --focus prev
 alt - n : yabai -m space --focus next
-alt - m : yabai -m space --focus last  # How is it different from recent?
+alt - o : yabai -m space --focus last  # How is it different from recent?
 
 # Moving windows
 shift + alt - h : yabai -m window --warp west
@@ -76,3 +76,6 @@ alt - w : yabai -m space --layout bsp
 # I don't want to use `alt - f` as I use it for terminal cursor movement
 shift + alt - f : yabai -m window --toggle zoom-fullscreen
 # shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# Minimize the window
+alt - m : yabai -m window --minimize
