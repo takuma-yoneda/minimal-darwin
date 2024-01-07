@@ -9,6 +9,7 @@ alt - l : yabai -m window --focus east
 # Navigation across spaces (workspaces)
 alt - p : yabai -m space --focus prev
 alt - n : yabai -m space --focus next
+alt - m : yabai -m space --focus last  # How is it different from recent?
 
 # Moving windows
 shift + alt - h : yabai -m window --warp west
@@ -50,22 +51,28 @@ shift + alt - x : yabai -m space --mirror x-axis
 shift + alt - y : yabai -m space --mirror y-axis
 
 # Set insertion point for focused container
-shift + lctrl + alt - h : yabai -m window --insert west
-shift + lctrl + alt - j : yabai -m window --insert south
-shift + lctrl + alt - k : yabai -m window --insert north
-shift + lctrl + alt - l : yabai -m window --insert east
+# shift + lctrl + alt - h : yabai -m window --insert west
+# shift + lctrl + alt - j : yabai -m window --insert south
+# shift + lctrl + alt - k : yabai -m window --insert north
+# shift + lctrl + alt - l : yabai -m window --insert east
 
 # Float / Unfloat window
-shift + alt - space : \
-    yabai -m window --toggle float; \
-    yabai -m window --toggle border
+# shift + alt - space : \
+#     yabai -m window --toggle float; \
+#     yabai -m window --toggle border
 
+# NOTE: Needs modification to work with nix
 # Restart Yabai
-shift + lctrl + alt - r : \
-    /usr/bin/env osascript <<< \
-        "display notification \"Restarting Yabai\" with title \"Yabai\""; \
-    launchctl kickstart -k "gui/''${UID}/homebrew.mxcl.yabai"
+# shift + lctrl + alt - r : \
+#     /usr/bin/env osascript <<< \
+#         "display notification \"Restarting Yabai\" with title \"Yabai\""; \
+#     launchctl kickstart -k "gui/''${UID}/homebrew.mxcl.yabai"
 
-# Make window native fullscreen
-alt - f         : yabai -m window --toggle zoom-fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
+# Toggle layout (float / bsp)
+alt - q : yabai -m space --layout float
+alt - w : yabai -m space --layout bsp
+
+# Make window fullscreen (not native-fullscreen)
+# I don't want to use `alt - f` as I use it for terminal cursor movement
+shift + alt - f : yabai -m window --toggle zoom-fullscreen
+# shift + alt - f : yabai -m window --toggle native-fullscreen
