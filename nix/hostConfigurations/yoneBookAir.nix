@@ -18,6 +18,7 @@
   # Always enable the shell system-wide, *even if it's already enabled in your home.nix*
   # https://nixos.wiki/wiki/Command_Shell
   programs.zsh.enable = true;
+  programs.bash.enable = true;
   # users.defaultUserShell = pkgs.zsh;
 
   # NOTE: Many programs look at /etc/shells to determine

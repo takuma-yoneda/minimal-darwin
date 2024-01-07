@@ -28,9 +28,20 @@
     cowsay
     docker
     fd
-    ffmpeg
+
+    # HACK: ffmpeg for darwin has a segfault issue
+    # reference: https://github.com/NixOS/nixpkgs/issues/271313#issuecomment-1836274601
+    # ffmpeg-full
+    (pkgs.ffmpeg.override {
+      x264 = pkgs.x264.overrideAttrs (old: {
+        postPatch = old.postPatch
+          + pkgs.lib.optionalString (pkgs.stdenv.isDarwin) ''
+            substituteInPlace Makefile --replace '$(if $(STRIP), $(STRIP) -x $@)' '$(if $(STRIP), $(STRIP) -S $@)'
+          '';
+      });
+    })
     htop
-    eza  # Modern ls
+    eza # Modern ls
     pdftk
     rsync
     ripgrep
