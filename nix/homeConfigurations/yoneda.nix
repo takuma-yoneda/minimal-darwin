@@ -48,7 +48,8 @@
     gnused
     # texlive.combined.scheme-full  # LaTeX
     tree
-    youtube-dl
+    # youtube-dl
+    yt-dlp
     watch
     wget
 
