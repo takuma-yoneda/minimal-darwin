@@ -53,15 +53,22 @@
     watch
     wget
 
+    # mathpix-snipping-tool  # Seems broken
     # It's better to have project specific directories
     # that have these inside, but it's easier to install globally honestly...
     nodePackages.pnpm
+    nodePackages.vercel
 
     # A set of nice utilities to do simple manipulation of images
     imagemagick
 
     # Fonts
+    # Managing fonts in Home Manager vs Nix-Darwin??
+    # The installed fonts can be found at `$HOME/Library/Fonts/HomeManager/*`
     nerdfonts
+
+    # Security
+    nmap
   ];
 
   fonts.fontconfig.enable = true;

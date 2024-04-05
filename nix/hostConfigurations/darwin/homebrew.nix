@@ -23,7 +23,6 @@
       "hunspell"
       "qt"
       "portaudio"
-      "whatsapp"
       # {
       #   name = "borders";
       #   # start_service = true;
@@ -32,6 +31,8 @@
     ];
     casks = [
       "macfuse"
+      "whatsapp"
+      # "arc"
     ];
     taps = [
       # default

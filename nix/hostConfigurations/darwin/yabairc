@@ -7,6 +7,7 @@ set -x
 
 # DEBUG: debug logs will be available at `/tmp/yabai_$USER.err.log`, `/tmp/yabai_$USER.out.log`
 # https://github.com/koekeishiya/yabai/wiki/Configuration#debug-output-and-error-reporting
+# post-note: it turns out that this simply writes logs to stdout / stderr, so logs cannot be seen unless the stdout/err redirect is set in plist file...
 # yabai -m config debug_output on
 
 # ====== Variables =============================
@@ -52,13 +53,14 @@ yabai -m config auto_balance                off
 # ===== Rules ==================================
 
 # yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-# yabai -m rule --add label="DoomEmacs" app="^emacs$" manage=on
+yabai -m rule --add label="DoomEmacs" app="^emacs$" manage=on
 yabai -m rule --add label="Finder" app="^Finder$" manage=off
 yabai -m rule --add label="NordVPN" app="^NordVPN$" manage=off
 yabai -m rule --add label="Messages" app="^Messages$" manage=off
 yabai -m rule --add label="Messenger" app="^Messenger$" manage=off
 yabai -m rule --add label="Discord" app="^Discord$" manage=off
 yabai -m rule --add label="LINE" app="^LINE$" manage=off
+yabai -m rule --add label="WhatsApp" app="^WhatsApp$" manage=off
 yabai -m rule --add label="Zoom" app="^zoom.us$" manage=off
 yabai -m rule --add label="QuickTime" app="^QuickTime Player$" manage=off
 yabai -m rule --add label="Reminders" app="^Reminders$" manage=off

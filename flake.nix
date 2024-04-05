@@ -76,6 +76,12 @@
           home-manager.useUserPackages = true;
           home-manager.users.yoneda = import ./nix/homeConfigurations/yoneda.nix;
         }
+        {
+          nix.settings.experimental-features = "nix-command flakes";
+          nixpkgs.config.allowUnfree = true;
+          # nixpkgs.config.allowUnsupportedSystem = true;
+          # nixpkgs.config.allowBroken = true;
+        }
       ];
     };
     # Expose the package set, including overlays, for convenience.

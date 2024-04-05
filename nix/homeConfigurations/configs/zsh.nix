@@ -23,6 +23,7 @@
       ll = "eza -l";
       p = "python3";
       grep = "rg";
+      g = "git";
     };
 
     syntaxHighlighting.enable = true;
