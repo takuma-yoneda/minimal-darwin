@@ -2,7 +2,8 @@
   # NOTE: First and foremost...
   # Keep in mind that this `flake.nix` is not executed with a standard `nix build .` !!!
   # Rather, it is executed by `nix run nix-darwin -- switch --flake .`
-  # This means that `nix-darwin` will understand those non-standard attributes defined in the output (e.g., `darwinConfigurations`, `darwinPackages`)
+  # This means that `nix-darwin` will understand those non-standard attributes
+  # defined in the output (e.g., `darwinConfigurations`, `darwinPackages`)
 
   # NOTE: What needs to be in a flake.nix file?
   # Reference: https://nixos.wiki/wiki/Flakes
@@ -16,6 +17,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+
+    # Add a new input for the unstable branch of nixpkgs
+    # This will be used specifically for yabai
+    nixpkgs-upstream.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+
     nix-darwin.url = "github:lnl7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";  # inherit an input from another input.
     home-manager.url = "github:nix-community/home-manager/release-23.11";
@@ -25,7 +31,7 @@
   # NOTE:
   # Once the inputs are resolved, they're passed to the function `outputs`
   # along with with `self`, which is the directory of this flake in the store.
-  outputs = { self, nix-darwin, home-manager, nixpkgs } @inputs : {
+  outputs = { self, nix-darwin, home-manager, nixpkgs, nixpkgs-upstream } @inputs : {
     # Trivia 1: For this ^, you can also write `{ self, ... }@inputs: {`
     # Trivia 2: `@` is destructuring operator. Usually, we need to have `inputs.nix-darwin` or `inputs.home-manager` but this sidesteps that
     #  You can also write `inputs@{self, ...}`
@@ -82,6 +88,25 @@
           # nixpkgs.config.allowUnsupportedSystem = true;
           # nixpkgs.config.allowBroken = true;
         }
+
+        # NOTE: Add a new module for the yabai overlay
+        ({ config, pkgs, ... }: {
+          # Define an overlay to selectively update yabai
+          nixpkgs.overlays = [
+            (final: prev: {
+              # This line replaces the yabai package from the stable nixpkgs
+              # with the one from nixpkgs-unstable
+              yabai = nixpkgs-upstream.legacyPackages.${prev.system}.yabai;
+
+              # You can add more packages here if you want to update them as well
+              # For example:
+              # skhd = nixpkgs-unstable.legacyPackages.${prev.system}.skhd;
+            })
+          ];
+
+          # NOTE: The overlay affects the `pkgs` set used throughout your configuration
+          # Any reference to `pkgs.yabai` will now use the unstable version
+        })
       ];
     };
     # Expose the package set, including overlays, for convenience.

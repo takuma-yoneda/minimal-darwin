@@ -3,7 +3,6 @@
 
 { pkgs, ... }:
 {
-
   imports = [
     ./darwin/homebrew.nix
   ];
@@ -13,6 +12,12 @@
   environment.systemPackages = [
     pkgs.hello
   ];
+
+  # Set the YABAI environment variable system-wide
+  environment.variables = {
+    YABAI = "${pkgs.yabai}/bin/yabai";
+    SKHD = "${pkgs.skhd}/bin/skhd";
+  };
 
 
   # Always enable the shell system-wide, *even if it's already enabled in your home.nix*
@@ -25,9 +30,6 @@
   # if a user is a "normal" user and not a "system" user.
   # Therefore it is recommended to add the user shells to this list.
   environment.shells = with pkgs; [ bash zsh ];
-
-  # Not sure if this is necessary...
-  fonts.fontDir.enable = true;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;

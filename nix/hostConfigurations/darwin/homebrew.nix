@@ -32,6 +32,7 @@
     casks = [
       "macfuse"
       "whatsapp"
+      "latexit"
       # "arc"
     ];
     taps = [

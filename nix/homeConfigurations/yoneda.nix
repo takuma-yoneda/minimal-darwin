@@ -21,8 +21,10 @@
     # Nix related
     nix
     nixfmt
+    nix-prefetch-git
     alejandra
     niv
+    # pip2nix.python310
 
     # Other packages
     cowsay
@@ -69,6 +71,14 @@
 
     # Security
     nmap
+
+    # Build kits
+    cmake
+
+    texlive.combined.scheme-full
+
+    # Darwin packages
+    darwin.iproute2mac
   ];
 
   fonts.fontconfig.enable = true;
@@ -81,5 +91,5 @@
   programs.bottom.enable = true;
   programs.less.enable = true;
   programs.vim.enable = true;
-  programs.texlive.enable = true;
+  # programs.texlive.enable = true;
 }
